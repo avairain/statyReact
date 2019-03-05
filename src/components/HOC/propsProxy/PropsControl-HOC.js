@@ -12,6 +12,7 @@ const PropsControlHOC = c => WrapperComponent => class PropsControlHOCFn extends
   // }
 
   // componentWillUnmount() {
+  //   // secend
   //   console.log('PropsControlHOC WillUnmount')
   // }
 
@@ -23,7 +24,7 @@ const PropsControlHOC = c => WrapperComponent => class PropsControlHOCFn extends
 
   render() {
     // secend
-    console.log('PropsControlHOC render')
+    // console.log('PropsControlHOC render')
     const newProps = {
       text: 'PropsControl-HOC-WrapperComponent',
       color: c || 'red',

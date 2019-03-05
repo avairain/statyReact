@@ -12,16 +12,18 @@ const PropsProxyHOC = WrappedComponent => class PropsProxyHOCFn extends Componen
   // }
 
   // componentWillUnmount() {
+  //   // first
   //   console.log('PropsProxyHOC WillUnmount')
   // }
 
   render() {
     // first
-    console.log('PropsProxyHOC render')
+    // console.log('PropsProxyHOC render')
     const newProps = {
       text: 'PropsProxyHOC-WrappedComponent',
       color: 'yellow',
     }
+    // 可以用其他元素包裹
     const code = (
       <div>
         <div>PropsProxyHOC</div>

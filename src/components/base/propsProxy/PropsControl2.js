@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import PropsProxyHOC from '../../HOC/propsProxy/PropsProxy-HOC'
+import PropsProxyHOC from 'HOC/propsProxy/PropsProxy-HOC'
+import COMMONHOC from 'HOC/Common-HOC'
 import PropsControlHOC from '../../HOC/propsProxy/PropsControl-HOC'
 
 /**
  * by Rain
- * 高阶组件是从外到内依次渲染(执行render)，挂载完成(执行componentDidMount)的顺序是从内到外
+ * 高阶组件(props proxy)[属性代理]是从外到内依次渲染(执行render)，挂载完成(执行componentDidMount)的顺序是从内到外
  *          卸载(执行componentWillUnmount)是从外到内
  */
 
+@COMMONHOC
 @PropsProxyHOC
 @PropsControlHOC('green')
 class PropsControl2 extends Component {
@@ -52,6 +54,7 @@ class PropsControl2 extends Component {
   // }
 
   // componentWillUnmount() {
+  //   // third
   //   console.log('PropsControl2 WillUnmount')
   // }
 
@@ -59,7 +62,7 @@ class PropsControl2 extends Component {
     const { text, color, clickHandler } = this.props
     // console.log(this.clickHandler())
     // third
-    console.log('PropsControl2 render')
+    // console.log('PropsControl2 render')
     // console.log(this)
     return (
       <div style={{ color }}>

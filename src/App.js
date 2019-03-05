@@ -4,28 +4,31 @@ import './App.css'
 // import PropsProxy from './components/base/propsProxy/PropsProxy'
 // import PropsControl from './components/base/propsProxy/PropsControl'
 import PropsControl2 from './components/base/propsProxy/PropsControl2'
+import AbstractState from './components/base/propsProxy/AbstractState'
+import InheritanceInversion from './components/base/inheritanceInversion/InheritanceInversion'
+import RenderOrder from './components/base/inheritanceInversion/RenderOrder'
+import RenderHijack from './components/base/inheritanceInversion/RenderHijack'
 
 class App extends Component {
-  static show = true
-
   constructor(props) {
     super(props)
     this.state = {
       show: true,
+      showRenderHijack: true,
     }
   }
 
   clickPropsControl2(e) {
+    // console.log(this, e)
+    this.show = !this.show
     e.persist()
-    console.log(this)
-    this.show = false
-    this.setState({ show: false })
-    console.log(e)
+    // this.show = false
+    this.setState({ showRenderHijack: this.show })
   }
 
   render() {
-    const { show } = this.state
-    console.log(show)
+    const { show, showRenderHijack } = this.state
+    const renderHijack = { loggedIn: showRenderHijack }
     return (
       <div className="App">
         <header className="App-header">
@@ -55,12 +58,18 @@ class App extends Component {
           {
             show
               ? (
-                <PropsControl2
-                  ref={(c) => { this.propsControls = c }}
-                />
+                <div>
+                  <PropsControl2
+                    ref={(c) => { this.propsControls = c }}
+                  />
+                  <AbstractState />
+                  <InheritanceInversion />
+                  <RenderOrder />
+                </div>
               )
               : <div />
           }
+          <RenderHijack {...renderHijack} />
         </div>
       </div>
     );

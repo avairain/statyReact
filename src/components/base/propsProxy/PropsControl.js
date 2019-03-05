@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import PropsControlHOC from '../../HOC/propsProxy/PropsControl-HOC'
+import COMMONHOC from 'HOC/Common-HOC'
 
+@COMMONHOC
 @PropsControlHOC()
 class PropsControl extends Component {
   static propTypes = {
@@ -32,7 +34,6 @@ class PropsControl extends Component {
           <span>+</span>
           {this.color}
         </div>
-        <hr />
       </div>
     )
   }

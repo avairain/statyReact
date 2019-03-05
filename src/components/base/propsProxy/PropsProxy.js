@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import PropsProxyHOC from '../../HOC/propsProxy/PropsProxy-HOC'
+import PropsProxyHOC from 'HOC/propsProxy/PropsProxy-HOC'
+import COMMONHOC from 'HOC/Common-HOC'
 
+@COMMONHOC
 @PropsProxyHOC
 class PropsProxy extends Component {
   static propTypes = {
@@ -31,7 +33,6 @@ class PropsProxy extends Component {
           <span>PropsProxy</span>
           {this.text}
         </div>
-        <hr />
       </div>
     )
   }
